@@ -1,4 +1,0 @@
-what is ORM?
-why when I require do I need to use the whole js file? how to reference js files? "./?"
-ORM.js?
-callback function? (for doing in a certain order?)
