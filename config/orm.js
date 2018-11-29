@@ -1,29 +1,26 @@
 var connection = require('./connection.js');
 
 var orm = {
-	selectAll : function () {
-		connection.query('SELECT * FROM "burgers";', function(error, results, fields) {
-  			// error will be an Error if one occurred during the query
-  			// results will contain the results of the query
-  			// fields will contain information about the returned results fields (if any)
+	selectAll : function (table,cb) {
+		var queryString = `select * from ${table};`;
+		connection.query(queryString, function(error, results, fields) {
+			if (error) {
+				throw error;
 			}
-		);
+  			cb(results);
+		});
 	},
 	insertOne : function() {
-		connection.query('SELECT * FROM `books` WHERE `author` = "David"', function(error, results, fields) {
-  			// error will be an Error if one occurred during the query
-  			// results will contain the results of the query
-  			// fields will contain information about the returned results fields (if any)
-			}
-		);
+		var queryString;
+		connection.query(queryString, function(error, results, fields) {
+  			
+		});
 	},
 	updateOne : function() {
-		connection.query('SELECT * FROM `books` WHERE `author` = "David"', function(error, results, fields) {
-  			// error will be an Error if one occurred during the query
-  			// results will contain the results of the query
-  			// fields will contain information about the returned results fields (if any)
-			}
-		);
+		var queryString;
+		connection.query(queryString, function(error, results, fields) {
+  			
+		});
 	}
 };
 
