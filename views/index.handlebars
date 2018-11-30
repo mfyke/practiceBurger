@@ -40,10 +40,10 @@
 	<div class="text-center">
 		<form action="/" method="POST">
 			<h2>Burger Name:</h2>
-			<input type="text" name="name">
+			<input type="text" name="burger_name" required>
 			<h2>Devoured?</h2>
-			<input type="radio" name="devoured" value="yes">Yes
-			<input type="radio" name="devoured" value="no" checked>No<br><br>
+			<input type="radio" name="devoured" value="false" checked>No
+			<input type="radio" name="devoured" value="true">Yes<br><br>
 			<button class="btn btn-success" type="submit">Add New Burger!</button>
 		</form>
 	</div>	

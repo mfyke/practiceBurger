@@ -6,8 +6,11 @@ const burger = {
 			cb(data);
 		});
 	},
-	insert : function() {
-
+	insert : (colsToAdd, cb)=> {
+		orm.insertOne("burgers", colsToAdd, (data) => {
+			cb(data);
+		})
+		
 	}, 
 	update : (colToEdit, condition, cb) => {
 		orm.updateOne("burgers", colToEdit, condition, (data) => {

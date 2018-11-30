@@ -7,9 +7,22 @@ router.get("/", (req,res) => {
 		const hbobj = {
 			burgers: data
 		}
-		// console.log(hbobj);
 		res.render("index", hbobj);
 	});
+});
+
+router.post("/", (req,res) => {
+	const names = Object.keys(req.body);
+	const burgerToAdd = {
+		name1: names[0],
+		name2: names[1],
+		value1: req.body.burger_name,
+		value2: req.body.devoured
+	}
+	burger.insert(burgerToAdd, (data) => {
+		res.redirect("/");
+	});
+
 });
 
 router.put("/:id", (req,res) => {
@@ -21,7 +34,6 @@ router.put("/:id", (req,res) => {
 		name: Object.keys(req.body),
 		value: req.body.devoured
 	}
-	// console.log(cols, condition);
 	burger.update(cols, condition, (data) => {
 		res.redirect("/");
 	});

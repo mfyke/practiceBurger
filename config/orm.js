@@ -10,8 +10,9 @@ const orm = {
   			cb(results);
 		});
 	},
-	insertOne : (table,colsToAdd, condition, cb) => {
-		// const queryString;
+	insertOne : (table,colsToAdd, cb) => {
+		const queryString = `insert into ${table} (${colsToAdd.name1}, ${colsToAdd.name2}) values ('${colsToAdd.value1}', ${colsToAdd.value2});`;
+		console.log(queryString);
 		connection.query(queryString, (error, results, fields) => {
   			if (error) {
   				throw error
