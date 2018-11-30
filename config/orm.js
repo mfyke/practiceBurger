@@ -1,25 +1,31 @@
-var connection = require('./connection.js');
+const connection = require('./connection.js');
 
-var orm = {
-	selectAll : function (table,cb) {
-		var queryString = `select * from ${table};`;
-		connection.query(queryString, function(error, results, fields) {
+const orm = {
+	selectAll : (table,cb) => {
+		const queryString = `select * from ${table};`;
+		connection.query(queryString, (error, results, fields) => {
 			if (error) {
 				throw error;
 			}
   			cb(results);
 		});
 	},
-	insertOne : function() {
-		var queryString;
-		connection.query(queryString, function(error, results, fields) {
-  			
+	insertOne : (table,colsToAdd, condition, cb) => {
+		// const queryString;
+		connection.query(queryString, (error, results, fields) => {
+  			if (error) {
+  				throw error
+  			}
+  			cb(results);
 		});
 	},
-	updateOne : function() {
-		var queryString;
-		connection.query(queryString, function(error, results, fields) {
-  			
+	updateOne : (table,colsToEdit,condition,cb) => {
+		const queryString= `update ${table} set ${colsToEdit.name} = ${colsToEdit.value} where ${condition.name} = ${condition.value};`;
+		connection.query(queryString, (error, results, fields) => {
+  			if (error) {
+  				throw error
+  			}
+  			cb(results);
 		});
 	}
 };
