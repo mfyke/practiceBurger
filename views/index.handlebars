@@ -15,6 +15,9 @@
 								<input type="hidden" name="devoured" value="true">
 								<button class="btn btn-success" type="submit">Devour!</button>
 							</form>
+							<form action="/{{this.id}}?_method=DELETE" method="POST">
+								<button class="btn btn-outline-danger" type="submit">Delete!</button>
+							</form>
 						</li>
 					{{/unless}}
 				{{/each}}
@@ -30,6 +33,9 @@
 							<form action="{{this.id}}?_method=PUT" method="POST">
 								<input type="hidden" name="devoured" value="false">
 								<button class="btn btn-danger" type="submit">Puke!</button>
+							</form>
+							<form action="/{{this.id}}?_method=DELETE" method="POST">
+								<button class="btn btn-outline-danger" type="submit">Delete!</button>
 							</form>
 						</li>
 					{{/if}}

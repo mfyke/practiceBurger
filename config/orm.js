@@ -21,12 +21,21 @@ const orm = {
 		});
 	},
 	updateOne : (table,colsToEdit,condition,cb) => {
-		const queryString= `update ${table} set ${colsToEdit.name} = ${colsToEdit.value} where ${condition.name} = ${condition.value};`;
+		const queryString = `update ${table} set ${colsToEdit.name} = ${colsToEdit.value} where ${condition.name} = ${condition.value};`;
 		connection.query(queryString, (error, results, fields) => {
   			if (error) {
   				throw error
   			}
   			cb(results);
+		});
+	},
+	deleteOne : (table, conditon, cb) => {
+		const queryString = `delete from ${table} where ${condition.name} = ${condition.value};`;
+		connection.query(queryString, (error, results, fields) => {
+			if (error) {
+				throw error
+			}
+			cb(results);
 		});
 	}
 };

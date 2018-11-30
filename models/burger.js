@@ -17,6 +17,11 @@ const burger = {
 			cb(data);
 		});
 
+	},
+	delete : (condition, cb) => {
+		orm.deleteOne("burgers", condition, (data) => {
+			cb(data);
+		});
 	}
 }
 

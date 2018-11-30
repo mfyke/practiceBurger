@@ -39,6 +39,17 @@ router.put("/:id", (req,res) => {
 	});
 });
 
+router.delete("/:id", (req,res) => {
+	console.log(req.params);
+	condition = {
+		name: Object.keys(req.params),
+		value: req.params.id
+	}
+	burger.delete(condition, (data) => {
+		res.redirect("/");
+	});
+});
+
 
 
 module.exports = router;
